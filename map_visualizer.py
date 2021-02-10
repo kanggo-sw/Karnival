@@ -59,6 +59,7 @@ for i, festival in enumerate(festivals):
     param = json.loads(open(f"{festival}/param.json", encoding="utf8").read())
 
     _adj_json = json.loads(open(f"{festival}/adjectives.json", encoding="utf8").read())
+    statistics = json.loads(open(f"{festival}/statistics.json", encoding="utf8").read())
 
     _adj_json = dict(itertools.islice(_adj_json.items(), 26))
     adj_data = {}
@@ -69,36 +70,35 @@ for i, festival in enumerate(festivals):
         {"x": [key for key in adj_data], "y": [adj_data[key] for key in adj_data]}
     )
 
-    chart = alt.Chart(df).mark_bar().encode(x="x", y="y",)
+    chart = alt.Chart(df).mark_bar().encode(x="x", y="y", )
     chart = json.loads(chart.to_json())
 
+    # 마커
     folium.Marker(
         location=(param["lat"], param["long"]),
-        tooltip=f"{param['name']}<br />상대적 만족도:{scaled_satisfaction[festival]}",
+        tooltip=f"{param['name']}<br />상대적 만족도:{scaled_satisfaction[festival]}<br />"
+                f"표준편차:{statistics['표준편차']}",
         popup=folium.Popup().add_child(folium.VegaLite(chart)),
         icon=folium.Icon(color="black", icon_color="#FFFF00", icon="check")
         if scaled_satisfaction[festival] == np.max(_satisfaction_indexed)
         else None,
     ).add_to(m)
+
+    # 전체시설
     folium.CircleMarker(
         location=(param["lat"], param["long"]),
-        tooltip=f"sum({sum_facilities_indexed_original[i]}개)",
-        radius=(scaled_facilities[festival] + 1) * 20,
+        tooltip=f"{param['name']}<br />상대적 만족도:{scaled_satisfaction[festival]}<br />"
+                f"sum({sum_facilities_indexed_original[i]}개)",
+        radius=(scaled_sum_facilities[festival] + 1) * 20,
         color="#222222",
         fill_color="#222222",
     ).add_to(m)
 
-    folium.Marker(
-        location=(param["lat"], param["long"]),
-        tooltip=f"{param['name']}<br />상대적 만족도:{scaled_satisfaction[festival]}",
-        popup=folium.Popup().add_child(folium.VegaLite(chart)),
-        icon=folium.Icon(color="black", icon_color="#FFFF00", icon="check")
-        if scaled_satisfaction[festival] == np.max(_satisfaction_indexed)
-        else None,
-    ).add_to(m)
+    # 중심시설
     folium.CircleMarker(
         location=(param["lat"], param["long"]),
-        tooltip=f"{facility_to_viz}({_facilities_indexed_original[i][0]}개)",
+        tooltip=f"{param['name']}<br />{facility_to_viz}({_facilities_indexed_original[i][0]}개)"
+                f"<br />상대적 만족도:{scaled_satisfaction[festival]}",
         radius=(scaled_facilities[festival] + 1) * 10 - 1,
         color="#3186cc",
         fill_color="#3186cc",
