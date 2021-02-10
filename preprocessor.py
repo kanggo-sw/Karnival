@@ -38,7 +38,11 @@ _dummy_word_list = [
 ]
 _pos_word_list = [
     "좋다",
+    "좋아하다",
+    "다양하다",
+    "맛있다",
     "예쁘다",
+    "이쁘다",
     "재미있다",
     "즐겁다",
     "화려하다",
@@ -55,6 +59,15 @@ _pos_word_list = [
     "편안하다",
     "멋지다",
     "행복하다",
+    "굉장하다",
+    "저렴하다",
+    "따뜻하다",
+    "괜찮다",
+    "편하다",
+    "넉넉하다",
+    "싱싱하다",
+    "위대하다",
+    "끝내주다",
 ]
 _neg_word_list = [
     "아쉽다",
@@ -172,7 +185,10 @@ print("예상완료시간: 약 {}분 이상".format(len(jsons) * 70. / 60.))
 for target_parameters in jsons:
     if os.path.isdir(target_parameters["name"]):
         print("[!] " + target_parameters["name"] + " is already processed. continue...")
+        with open(f"{target_parameters['name']}/param.json", "w", encoding="utf8") as f:
+            f.write(json.dumps(target_parameters, ensure_ascii=False))
         continue
+
     print("[+] Step 1. Crawling data")
     crawling(
         keywords=target_parameters["keywords"],

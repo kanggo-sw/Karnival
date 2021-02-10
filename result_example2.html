@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ff15fd80dc2a4eca9fc58734a132fdb2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    
+            <style> #vega_lite_757b5a2ec2084bbab9bd31f150d177ee {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+            </style>
+            
+    <script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+    
+            <style> #vega_lite_5236be3138994ec1876a7c2bcc9d1437 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+            </style>
+            
+    
+            <style> #vega_lite_b58c93788aa14d2caa7a3491bdd87f17 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+            </style>
+            
+    
+            <style> #vega_lite_e5a56408b34943379ba0e3929024f5d1 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+            </style>
+            
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_ff15fd80dc2a4eca9fc58734a132fdb2" ></div>
+        
+</body>
+<script>    
+    
+            var map_ff15fd80dc2a4eca9fc58734a132fdb2 = L.map(
+                "map_ff15fd80dc2a4eca9fc58734a132fdb2",
+                {
+                    center: [37.8304115, 128.2260705],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_78e472e553b64afdb3ae267b893026c0 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            var marker_c5c3949579bd43e7abbf76f802030202 = L.marker(
+                [37.67713, 128.71834],
+                {}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+        var popup_a848d79813ec41c1a46b94e77ae6f1bb = L.popup({"maxWidth": "100%"});
+
+        
+            var vega_lite_757b5a2ec2084bbab9bd31f150d177ee = $(`             <div id="vega_lite_757b5a2ec2084bbab9bd31f150d177ee"></div>             `)[0];
+            popup_a848d79813ec41c1a46b94e77ae6f1bb.setContent(vega_lite_757b5a2ec2084bbab9bd31f150d177ee);
+        
+
+        marker_c5c3949579bd43e7abbf76f802030202.bindPopup(popup_a848d79813ec41c1a46b94e77ae6f1bb)
+        ;
+
+        
+            
+                    vegaEmbed(vega_lite_757b5a2ec2084bbab9bd31f150d177ee, {"$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "config": {"view": {"continuousHeight": 300, "continuousWidth": 400}}, "data": {"name": "data-3f8865c3eb17bc871fa366b820d09235"}, "datasets": {"data-3f8865c3eb17bc871fa366b820d09235": [{"x": "a.\uc88b\ub2e4", "y": 78}, {"x": "b.\ub2e4\uc591\ud558\ub2e4", "y": 33}, {"x": "c.\uc608\uc058\ub2e4", "y": 26}, {"x": "d.\ub530\ub73b\ud558\ub2e4", "y": 17}, {"x": "e.\ub9db\uc788\ub2e4", "y": 16}, {"x": "f.\uc544\uc27d\ub2e4", "y": 16}, {"x": "g.\uc7ac\ubbf8\uc788\ub2e4", "y": 15}, {"x": "h.\uc88b\uc544\ud558\ub2e4", "y": 14}, {"x": "i.\ud3b8\ud558\ub2e4", "y": 13}, {"x": "j.\uc990\uac81\ub2e4", "y": 13}, {"x": "k.\uc544\ub984\ub2f5\ub2e4", "y": 12}, {"x": "l.\uc7ac\ubc0c\ub2e4", "y": 12}, {"x": "m.\uad49\uc7a5\ud558\ub2e4", "y": 12}, {"x": "n.\uadc0\uc5fd\ub2e4", "y": 11}, {"x": "o.\ud558\uc597\ub2e4", "y": 11}, {"x": "p.\uc548\ub155\ud558\ub2e4", "y": 10}, {"x": "q.\ucda5\ub2e4", "y": 10}, {"x": "r.\uacc4\uc2dc\ub2e4", "y": 9}, {"x": "s.\uc720\uba85\ud558\ub2e4", "y": 9}, {"x": "t.\uc2e0\ub098\ub2e4", "y": 9}, {"x": "u.\uc800\ub834\ud558\ub2e4", "y": 8}, {"x": "v.\uac00\ub4dd\ud558\ub2e4", "y": 8}, {"x": "w.\ub192\ub2e4", "y": 8}, {"x": "x.\uc54c\ucc28\ub2e4", "y": 7}, {"x": "y.\ud654\ub824\ud558\ub2e4", "y": 7}, {"x": "z.\uc0c8\ub86d\ub2e4", "y": 6}]}, "encoding": {"x": {"field": "x", "type": "nominal"}, "y": {"field": "y", "type": "quantitative"}}, "mark": "bar"})
+                        .then(function(result) {})
+                        .catch(console.error);
+                
+        
+    
+    
+            marker_c5c3949579bd43e7abbf76f802030202.bindTooltip(
+                `<div>
+                     대관령 눈꽃축제<br />상대적 만족도:0.5820132722259008<br />표준편차:4.4947606502070485
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6ceee3aef958483e8d9c5ec05616bf5e = L.circleMarker(
+                [37.67713, 128.71834],
+                {"bubblingMouseEvents": true, "color": "#222222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#222222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.0, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_6ceee3aef958483e8d9c5ec05616bf5e.bindTooltip(
+                `<div>
+                     대관령 눈꽃축제<br />상대적 만족도:0.5820132722259008<br />sum([222]개)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2d001d8cd4424fb9af9d64a791378da6 = L.circleMarker(
+                [37.67713, 128.71834],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.0, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_2d001d8cd4424fb9af9d64a791378da6.bindTooltip(
+                `<div>
+                     대관령 눈꽃축제<br />금연구역(127개)<br />상대적 만족도:0.5820132722259008
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cf75f02d37f04e1a84905d08fbf557fb = L.marker(
+                [38.04416, 128.27876],
+                {}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+        var popup_e67b057ca0404e97a2cf57ae74aa61d6 = L.popup({"maxWidth": "100%"});
+
+        
+            var vega_lite_5236be3138994ec1876a7c2bcc9d1437 = $(`             <div id="vega_lite_5236be3138994ec1876a7c2bcc9d1437"></div>             `)[0];
+            popup_e67b057ca0404e97a2cf57ae74aa61d6.setContent(vega_lite_5236be3138994ec1876a7c2bcc9d1437);
+        
+
+        marker_cf75f02d37f04e1a84905d08fbf557fb.bindPopup(popup_e67b057ca0404e97a2cf57ae74aa61d6)
+        ;
+
+        
+            
+                    vegaEmbed(vega_lite_5236be3138994ec1876a7c2bcc9d1437, {"$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "config": {"view": {"continuousHeight": 300, "continuousWidth": 400}}, "data": {"name": "data-c8347418a2425cd0ded15bc8b9f66230"}, "datasets": {"data-c8347418a2425cd0ded15bc8b9f66230": [{"x": "a.\uc88b\ub2e4", "y": 69}, {"x": "b.\ub2e4\uc591\ud558\ub2e4", "y": 32}, {"x": "c.\uc990\uac81\ub2e4", "y": 21}, {"x": "d.\uc544\uc27d\ub2e4", "y": 17}, {"x": "e.\uc7ac\ubbf8\uc788\ub2e4", "y": 17}, {"x": "f.\ub9db\uc788\ub2e4", "y": 15}, {"x": "g.\uc608\uc058\ub2e4", "y": 14}, {"x": "h.\ub530\ub73b\ud558\ub2e4", "y": 14}, {"x": "i.\uc720\uba85\ud558\ub2e4", "y": 14}, {"x": "j.\uc2e0\ub098\ub2e4", "y": 10}, {"x": "k.\uc88b\uc544\ud558\ub2e4", "y": 10}, {"x": "l.\uba4b\uc9c0\ub2e4", "y": 10}, {"x": "m.\uc544\ub984\ub2f5\ub2e4", "y": 10}, {"x": "n.\ud798\ub4e4\ub2e4", "y": 9}, {"x": "o.\uc2e0\uae30\ud558\ub2e4", "y": 9}, {"x": "p.\ube44\uc2f8\ub2e4", "y": 8}, {"x": "q.\ub113\ub2e4", "y": 8}, {"x": "r.\uc548\ub418\ub2e4", "y": 7}, {"x": "s.\ube44\uc2b7\ud558\ub2e4", "y": 7}, {"x": "t.\uc131\ud558\ub2e4", "y": 7}, {"x": "u.\uc0c8\ub86d\ub2e4", "y": 6}, {"x": "v.\uac04\ub2e8\ud558\ub2e4", "y": 6}, {"x": "w.\uc54c\ucc28\ub2e4", "y": 6}, {"x": "x.\uc7ac\ubc0c\ub2e4", "y": 6}, {"x": "y.\uad81\uae08\ud558\ub2e4", "y": 6}, {"x": "z.\ud589\ubcf5\ud558\ub2e4", "y": 6}]}, "encoding": {"x": {"field": "x", "type": "nominal"}, "y": {"field": "y", "type": "quantitative"}}, "mark": "bar"})
+                        .then(function(result) {})
+                        .catch(console.error);
+                
+        
+    
+    
+            marker_cf75f02d37f04e1a84905d08fbf557fb.bindTooltip(
+                `<div>
+                     인제 빙어축제<br />상대적 만족도:0.9600081734553843<br />표준편차:4.341439284050596
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b6385f589f154236aa34f18d806dc4ef = L.circleMarker(
+                [38.04416, 128.27876],
+                {"bubblingMouseEvents": true, "color": "#222222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#222222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 40.0, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_b6385f589f154236aa34f18d806dc4ef.bindTooltip(
+                `<div>
+                     인제 빙어축제<br />상대적 만족도:0.9600081734553843<br />sum([863]개)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_64b226c09c714edba8a2158581ffeaf8 = L.circleMarker(
+                [38.04416, 128.27876],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.0, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_64b226c09c714edba8a2158581ffeaf8.bindTooltip(
+                `<div>
+                     인제 빙어축제<br />금연구역(351개)<br />상대적 만족도:0.9600081734553843
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9839c14fae0b459a8a8ca7fcc5454cc7 = L.marker(
+                [37.1640654, 128.9855649],
+                {}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            var icon_8bf160ed5e64477c9f7511895d39f98c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "check", "iconColor": "#FFFF00", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_9839c14fae0b459a8a8ca7fcc5454cc7.setIcon(icon_8bf160ed5e64477c9f7511895d39f98c);
+        
+    
+        var popup_30730e02e03145f69b6e9f8b9ba13376 = L.popup({"maxWidth": "100%"});
+
+        
+            var vega_lite_b58c93788aa14d2caa7a3491bdd87f17 = $(`             <div id="vega_lite_b58c93788aa14d2caa7a3491bdd87f17"></div>             `)[0];
+            popup_30730e02e03145f69b6e9f8b9ba13376.setContent(vega_lite_b58c93788aa14d2caa7a3491bdd87f17);
+        
+
+        marker_9839c14fae0b459a8a8ca7fcc5454cc7.bindPopup(popup_30730e02e03145f69b6e9f8b9ba13376)
+        ;
+
+        
+            
+                    vegaEmbed(vega_lite_b58c93788aa14d2caa7a3491bdd87f17, {"$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "config": {"view": {"continuousHeight": 300, "continuousWidth": 400}}, "data": {"name": "data-0633d809e004f05a13795f0270d29a7f"}, "datasets": {"data-0633d809e004f05a13795f0270d29a7f": [{"x": "a.\uc88b\ub2e4", "y": 47}, {"x": "b.\ub2e4\uc591\ud558\ub2e4", "y": 22}, {"x": "c.\ub530\ub73b\ud558\ub2e4", "y": 14}, {"x": "d.\uc2e0\ub098\ub2e4", "y": 11}, {"x": "e.\uc0c8\ub86d\ub2e4", "y": 10}, {"x": "f.\uc544\ub984\ub2f5\ub2e4", "y": 9}, {"x": "g.\uc88b\uc544\ud558\ub2e4", "y": 9}, {"x": "h.\uc7ac\ubbf8\uc788\ub2e4", "y": 8}, {"x": "i.\ub192\ub2e4", "y": 8}, {"x": "j.\uc608\uc058\ub2e4", "y": 7}, {"x": "k.\uc5ec\uc804\ud558\ub2e4", "y": 7}, {"x": "l.\uae38\ub2e4", "y": 6}, {"x": "m.\uc548\ub155\ud558\ub2e4", "y": 6}, {"x": "n.\ubc09\ub2e4", "y": 6}, {"x": "o.\uacc4\uc2dc\ub2e4", "y": 6}, {"x": "p.\uad1c\ucc2e\ub2e4", "y": 6}, {"x": "q.\ubbf8\uce58\ub2e4", "y": 6}, {"x": "r.\uc720\uba85\ud558\ub2e4", "y": 5}, {"x": "s.\uc990\uac81\ub2e4", "y": 5}, {"x": "t.\ub2e4\ub974\ub2e4", "y": 5}, {"x": "u.\uc790\uc138\ud558\ub2e4", "y": 5}, {"x": "v.\uc778\ud558\ub2e4", "y": 5}, {"x": "w.\ud798\ub4e4\ub2e4", "y": 5}, {"x": "x.\ud558\uc597\ub2e4", "y": 5}, {"x": "y.\uc5c4\uccad\ub098\ub2e4", "y": 5}, {"x": "z.\uac04\ub2e8\ud558\ub2e4", "y": 5}]}, "encoding": {"x": {"field": "x", "type": "nominal"}, "y": {"field": "y", "type": "quantitative"}}, "mark": "bar"})
+                        .then(function(result) {})
+                        .catch(console.error);
+                
+        
+    
+    
+            marker_9839c14fae0b459a8a8ca7fcc5454cc7.bindTooltip(
+                `<div>
+                     태백산 눈축제<br />상대적 만족도:1.0000000000000002<br />표준편차:3.8557998315819284
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0cfa324e9f754c3f9341bc2243867309 = L.circleMarker(
+                [37.1640654, 128.9855649],
+                {"bubblingMouseEvents": true, "color": "#222222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#222222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 22.496099843993758, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_0cfa324e9f754c3f9341bc2243867309.bindTooltip(
+                `<div>
+                     태백산 눈축제<br />상대적 만족도:1.0000000000000002<br />sum([302]개)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_bfc7904d687141258753e6cc6933d6da = L.circleMarker(
+                [37.1640654, 128.9855649],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.339285714285712, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_bfc7904d687141258753e6cc6933d6da.bindTooltip(
+                `<div>
+                     태백산 눈축제<br />금연구역(269개)<br />상대적 만족도:1.0000000000000002
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8e1b1365095f49968958a4b6894a0610 = L.marker(
+                [37.37028, 128.39306],
+                {}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+        var popup_2f9411014f544083a7a67ba8d306587a = L.popup({"maxWidth": "100%"});
+
+        
+            var vega_lite_e5a56408b34943379ba0e3929024f5d1 = $(`             <div id="vega_lite_e5a56408b34943379ba0e3929024f5d1"></div>             `)[0];
+            popup_2f9411014f544083a7a67ba8d306587a.setContent(vega_lite_e5a56408b34943379ba0e3929024f5d1);
+        
+
+        marker_8e1b1365095f49968958a4b6894a0610.bindPopup(popup_2f9411014f544083a7a67ba8d306587a)
+        ;
+
+        
+            
+                    vegaEmbed(vega_lite_e5a56408b34943379ba0e3929024f5d1, {"$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "config": {"view": {"continuousHeight": 300, "continuousWidth": 400}}, "data": {"name": "data-ff4d391826f2fb50ec22cd3d961af4ac"}, "datasets": {"data-ff4d391826f2fb50ec22cd3d961af4ac": [{"x": "a.\uc88b\ub2e4", "y": 115}, {"x": "b.\ub2e4\uc591\ud558\ub2e4", "y": 24}, {"x": "c.\ub9db\uc788\ub2e4", "y": 23}, {"x": "d.\ub530\ub73b\ud558\ub2e4", "y": 18}, {"x": "e.\uc990\uac81\ub2e4", "y": 17}, {"x": "f.\ucc28\uac11\ub2e4", "y": 14}, {"x": "g.\ube44\uc2f8\ub2e4", "y": 13}, {"x": "h.\uad1c\ucc2e\ub2e4", "y": 13}, {"x": "i.\uc544\uc27d\ub2e4", "y": 13}, {"x": "j.\uc88b\uc544\ud558\ub2e4", "y": 13}, {"x": "k.\uacc4\uc2dc\ub2e4", "y": 13}, {"x": "l.\uc7ac\ubc0c\ub2e4", "y": 12}, {"x": "m.\uc5c4\uccad\ub098\ub2e4", "y": 11}, {"x": "n.\ub2e4\ub974\ub2e4", "y": 11}, {"x": "o.\ubd80\uc871\ud558\ub2e4", "y": 11}, {"x": "p.\uc2e0\uae30\ud558\ub2e4", "y": 10}, {"x": "q.\ud3b8\ud558\ub2e4", "y": 10}, {"x": "r.\uc2e0\ub098\ub2e4", "y": 10}, {"x": "s.\ud798\ub4e4\ub2e4", "y": 10}, {"x": "t.\uc57c\ud558\ub2e4", "y": 9}, {"x": "u.\ube60\ub974\ub2e4", "y": 9}, {"x": "v.\ud655\uc2e4\ud558\ub2e4", "y": 9}, {"x": "w.\uc544\uae5d\ub2e4", "y": 8}, {"x": "x.\uc7ac\ubbf8\uc788\ub2e4", "y": 8}, {"x": "y.\ucda5\ub2e4", "y": 8}, {"x": "z.\uc548\ub418\ub2e4", "y": 8}]}, "encoding": {"x": {"field": "x", "type": "nominal"}, "y": {"field": "y", "type": "quantitative"}}, "mark": "bar"})
+                        .then(function(result) {})
+                        .catch(console.error);
+                
+        
+    
+    
+            marker_8e1b1365095f49968958a4b6894a0610.bindTooltip(
+                `<div>
+                     평창 송어축제<br />상대적 만족도:0.0<br />표준편차:6.163828361307584
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_50f5155e2b254bee891aca909f55009d = L.circleMarker(
+                [37.37028, 128.39306],
+                {"bubblingMouseEvents": true, "color": "#222222", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#222222", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 36.47425897035881, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_50f5155e2b254bee891aca909f55009d.bindTooltip(
+                `<div>
+                     평창 송어축제<br />상대적 만족도:0.0<br />sum([750]개)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4d8da95f96c64c7c9328b5dae442a129 = L.circleMarker(
+                [37.37028, 128.39306],
+                {"bubblingMouseEvents": true, "color": "#3186cc", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3186cc", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.3125, "stroke": true, "weight": 3}
+            ).addTo(map_ff15fd80dc2a4eca9fc58734a132fdb2);
+        
+    
+            circle_marker_4d8da95f96c64c7c9328b5dae442a129.bindTooltip(
+                `<div>
+                     평창 송어축제<br />금연구역(134개)<br />상대적 만족도:0.0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
