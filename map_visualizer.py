@@ -1,5 +1,7 @@
 import itertools
 import json
+import os
+import sys
 
 import altair as alt
 import folium
@@ -9,8 +11,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Parameters
 
-festivals = ["태백산 눈축제", "대관령 눈꽃축제", "화천 실내얼음조각광장"]
-facility_to_viz = "숙박시설"
+festivals = sys.argv[1].split(",")
+facility_to_viz = sys.argv[2]
 m = folium.Map(
     [(38.642618 + 37.018205) / 2, (127.080231 + 129.371910) / 2],
     zoom_start=8,
@@ -19,10 +21,13 @@ m = folium.Map(
 _satisfaction_indexed = []
 scaled_satisfaction = {}
 _facilities_indexed = []
+sum_facilities_indexed = []
 scaled_facilities = {}
+scaled_sum_facilities = {}
 
 statistics_scalar = MinMaxScaler()
 facilities_scalar = MinMaxScaler()
+sum_facilities_scalar = MinMaxScaler()
 
 for i, festival in enumerate(festivals):
     statistics = json.loads(open(f"{festival}/statistics.json", encoding="utf8").read())
@@ -30,6 +35,8 @@ for i, festival in enumerate(festivals):
 
     _satisfaction_indexed.append([statistics["평균"]])
     _facilities_indexed.append([facilities[facility_to_viz]])
+
+    sum_facilities_indexed.append([sum(dict(facilities).values())])
 
 statistics_scalar.fit(_satisfaction_indexed)
 _satisfaction_indexed = statistics_scalar.transform(_satisfaction_indexed)
@@ -41,6 +48,12 @@ facilities_scalar.fit(_facilities_indexed)
 _facilities_indexed = facilities_scalar.transform(_facilities_indexed)
 for i, festival in enumerate(festivals):
     scaled_facilities[festival] = _facilities_indexed[i][0]
+
+sum_facilities_indexed_original = sum_facilities_indexed.copy()
+sum_facilities_scalar.fit(sum_facilities_indexed)
+sum_facilities_indexed = sum_facilities_scalar.transform(sum_facilities_indexed)
+for i, festival in enumerate(festivals):
+    scaled_sum_facilities[festival] = sum_facilities_indexed[i][0]
 
 for i, festival in enumerate(festivals):
     param = json.loads(open(f"{festival}/param.json", encoding="utf8").read())
@@ -67,13 +80,29 @@ for i, festival in enumerate(festivals):
         if scaled_satisfaction[festival] == np.max(_satisfaction_indexed)
         else None,
     ).add_to(m)
-
     folium.CircleMarker(
         location=(param["lat"], param["long"]),
-        tooltip=f"인프라({_facilities_indexed_original[i][0]}개)",
+        tooltip=f"sum({sum_facilities_indexed_original[i]}개)",
+        radius=(scaled_facilities[festival] + 1) * 20,
+        color="#222222",
+        fill_color="#222222",
+    ).add_to(m)
+
+    folium.Marker(
+        location=(param["lat"], param["long"]),
+        tooltip=f"{param['name']}<br />상대적 만족도:{scaled_satisfaction[festival]}",
+        popup=folium.Popup().add_child(folium.VegaLite(chart)),
+        icon=folium.Icon(color="black", icon_color="#FFFF00", icon="check")
+        if scaled_satisfaction[festival] == np.max(_satisfaction_indexed)
+        else None,
+    ).add_to(m)
+    folium.CircleMarker(
+        location=(param["lat"], param["long"]),
+        tooltip=f"{facility_to_viz}({_facilities_indexed_original[i][0]}개)",
         radius=(scaled_facilities[festival] + 1) * 10 - 1,
         color="#3186cc",
         fill_color="#3186cc",
     ).add_to(m)
 
 m.save(f"{festivals[0]} 등 시각화.html")
+os.system(f"\"{festivals[0]} 등 시각화.html\"")

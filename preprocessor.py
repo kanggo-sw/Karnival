@@ -6,6 +6,8 @@
 """
 import json
 import os
+import time
+from glob import glob
 
 from analyzer.__main__ import language_processing, sentimental_analyzer
 from crawler.__main__ import crawling
@@ -89,6 +91,8 @@ _neg_word_list = [
     "배고프다",
 ]
 
+start_time = time.time()
+
 # Parameters
 taekwanryeong = {
     # 축제명
@@ -154,7 +158,18 @@ hwacheon = {
     "local_name": "화천군"
 }
 
-for target_parameters in [taekwanryeong, taebaek, hwacheon]:
+jsons = []
+
+for json_file in glob("./*.json"):
+    json_dict = json.loads(open(json_file, encoding="utf8").read())
+    json_dict["dummy_word_list"] = _dummy_word_list
+    json_dict["neg_word_list"] = _neg_word_list
+    json_dict["pos_word_list"] = _pos_word_list
+    jsons.append(json_dict)
+
+print("예상완료시간: 약 {}분 이상".format(len(jsons) * 70. / 60.))
+
+for target_parameters in jsons:
     if os.path.isdir(target_parameters["name"]):
         print("[!] " + target_parameters["name"] + " is already processed. continue...")
         continue
@@ -198,3 +213,5 @@ for target_parameters in [taekwanryeong, taebaek, hwacheon]:
     print("[+] Final. Rename directory")
     os.rename("data", target_parameters["name"])
     print("Done.\n")
+
+print(f"Process completed in {time.time() - start_time}s.")
